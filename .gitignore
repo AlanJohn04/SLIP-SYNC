@@ -1,39 +1,83 @@
+# ==========================================
+#        SLIP-SYNC SYSTEM GITIGNORE
+# ==========================================
+
 # --- Node / React Frontend ---
 node_modules/
+**/node_modules/
 dist/
+**/dist/
 build/
+**/build/
+out/
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # --- Python Backend ---
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 venv/
 env/
 .venv/
+ENV/
 backend/venv/
+backend/env/
+backend/.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.eggs/
 
-# --- Sensitive Credentials (CRITICAL) ---
-# DO NOT upload your Google OAuth credentials or tokens!
+# --- Sensitive Credentials (CRITICAL SECURITY) ---
+# Strictly prevent uploading corporate Google API or Firebase credentials
 client_secret_*.json
 backend/client_secret_*.json
 token.json
 backend/token.json
+firebase_key.json
+backend/firebase_key.json
+*.key
+*.pem
+*.pfx
+*.p12
+*.crt
+*.cer
 .env
+.env.*
+!.env.example
 
-# --- Database & User Files ---
-# Prevent uploading private salary/employee records
+# --- Database, Uploads, & Private Corporate CSVs ---
+# Strictly prevent uploading SQLite database instances, generated slips, or employee details
 backend/slipsync.db
+*.db
+*.sqlite
+*.sqlite3
 backend/uploads/
+backend/temp/
 *.csv
 employees_data.csv
 payroll_data.csv
+test_employees.csv
 
-# --- IDEs and OS files ---
+# --- IDEs, OS, and Editor Configuration ---
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 .DS_Store
 Thumbs.db
+desktop.ini
+ehthumbs.db
+

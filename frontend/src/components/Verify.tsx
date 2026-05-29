@@ -101,7 +101,7 @@ export default function Verify() {
         {/* Footer */}
         <div className="bg-amber-900 text-amber-50 py-2 px-6 flex justify-between font-mono text-[10px] uppercase tracking-widest">
           <span>SlipSync Security Engine</span>
-          <span>ID: {slipId.padStart(8, '0')}</span>
+          <span>ID: {(slipId || '').padStart(8, '0')}</span>
         </div>
       </motion.div>
     </div>
