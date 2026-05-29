@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slipsync-backend
+  labels:
+    app: slipsync-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slipsync-backend
+  template:
+    metadata:
+      labels:
+        app: slipsync-backend
+    spec:
+      containers:
+      - name: backend
+        image: slipsync-backend:latest
+        imagePullPolicy: Never  # Assumes image is built locally or in minikube
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DATA_DIR
+          value: "/data"
+        volumeMounts:
+        - name: data-volume
+          mountPath: /data
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: slipsync-backend-pvc

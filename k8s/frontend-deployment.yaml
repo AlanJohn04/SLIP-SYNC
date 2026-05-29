@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slipsync-frontend
+  labels:
+    app: slipsync-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slipsync-frontend
+  template:
+    metadata:
+      labels:
+        app: slipsync-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: slipsync-frontend:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5173
+        env:
+        # In a real production cluster, you would point this to the backend's external Ingress URL
+        - name: VITE_API_URL
+          value: "http://localhost:5000"

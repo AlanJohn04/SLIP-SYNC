@@ -1,0 +1,39 @@
+# --- Node / React Frontend ---
+node_modules/
+dist/
+build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- Python Backend ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+backend/venv/
+
+# --- Sensitive Credentials (CRITICAL) ---
+# DO NOT upload your Google OAuth credentials or tokens!
+client_secret_*.json
+backend/client_secret_*.json
+token.json
+backend/token.json
+.env
+
+# --- Database & User Files ---
+# Prevent uploading private salary/employee records
+backend/slipsync.db
+backend/uploads/
+*.csv
+employees_data.csv
+payroll_data.csv
+
+# --- IDEs and OS files ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
